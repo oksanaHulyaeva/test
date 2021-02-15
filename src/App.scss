@@ -1,6 +1,5 @@
 @import "sass/placeholders";
 
-
 .card {
   width: 256px;
   height: 340px;
@@ -9,6 +8,43 @@
   background-color: #fff;
   overflow: hidden;
   position: relative;
+  margin-top: 32px;
+  @extend %transition;
+}
+
+.card:hover {
+  margin-top: 27px;
+}
+
+.card:hover .card__controls {
+  opacity: 1;
+}
+
+.card__controls {
+  width: 192px;
+  height: 24px;
+  position: absolute;
+  top: 152px;
+  left: 32px;
+  margin: 7px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 0;
+  opacity: 0;
+  @extend %transition;
+  .checkbox {
+    width: 16px;
+    height: 16px;
+    background-image: url(./assets/checkbox.svg);
+    @extend %cursor;
+  }
+  .elipsis-icon {
+    width: 18px;
+    height: 4px;
+    background-image: url(./assets/elipsis.svg);
+    @extend %cursor;
+  }
 }
 
 .card__gallery {
@@ -24,33 +60,23 @@
     height: 132px;
     margin-right: 4px;
     border-radius: 2px;
+    object-fit: cover;
+  }
+  .gallery-handler {
+    width: 48px;
+    height: 132px;
+    position: absolute;
+    top: 8px;
+    right: 0;
+    background: linear-gradient(270deg, rgba(34, 44, 53, 0.6) 0%, rgba(34, 44, 53, 0.594812) 6.67%, rgba(34, 44, 53, 0.578694) 13.33%, rgba(34, 44, 53, 0.551004) 20%, rgba(34, 44, 53, 0.511553) 26.67%, rgba(34, 44, 53, 0.460935) 33.33%, rgba(34, 44, 53, 0.40087) 40%, rgba(34, 44, 53, 0.334385) 46.67%, rgba(34, 44, 53, 0.265615) 53.33%, rgba(34, 44, 53, 0.19913) 60%, rgba(34, 44, 53, 0.139065) 66.67%, rgba(34, 44, 53, 0.0884468) 73.33%, rgba(34, 44, 53, 0.0489959) 80%, rgba(34, 44, 53, 0.021306) 86.67%, rgba(34, 44, 53, 0.00518832) 93.33%, rgba(34, 44, 53, 0) 100%);
+    opacity: 0;
+    @extend %transition;
+    &:hover{
+      opacity: 1;
+    }
   }
 }
 
-.card__controls {
-  width: 192px;
-  height: 24px;
-  position: absolute;
-  top: 152px;
-  left: 32px;
-  margin: 7px auto 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 0;
-  .checkbox {
-    width: 16px;
-    height: 16px;
-    background-image: url(./assets/checkbox.svg);
-    @extend %cursor;
-  }
-  .elipsis-icon {
-    width: 18px;
-    height: 4px;
-    background-image: url(./assets/elipsis.svg);
-    @extend %cursor;
-  }
-}
 
 .card__profile {
   text-align: center;
@@ -60,12 +86,22 @@
     display: block;
     height: 100%;
     padding-top: 43px;
+    p {
+      margin: 0 auto;
+      max-width: 192px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
     .profile-avatar {
-      width: 60px;
-      height: 60px;
       position: absolute;
       top: -24px;
       left: calc(50% - 60px/2);
+      img{
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+      }
     }
     hr {
       width: 48px;
@@ -91,5 +127,86 @@
     line-height: 20px;
     color: #636F81;
   }
+}
+
+.card__socials {
+  margin: 13px auto;
+  padding: 0 32px 0 32px;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.social_item {
+  p {
+    margin-top: 7px;
+    color: #222C35;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+  @extend %bg-image;
+  @extend %transition;
+}
+
+.insta-icon {
+  background-image: url('./assets/insta.svg');
+}
+
+.insta-icon:hover {
+  background-image: url('./assets/insta-hover.svg');
+}
+
+.fb-icon {
+  background-image: url('./assets/fb.svg');
+}
+
+.fb-icon:hover {
+  background-image: url('./assets/fb-hover.svg');
+}
+
+.tt-icon {
+  background-image: url('./assets/tt.svg');
+}
+
+.tt-icon:hover {
+  background-image: url('./assets/tt-hover.svg');
+}
+
+.dots-icon {
+  background-image: url('./assets/dots.svg');
+}
+
+.dots-icon:hover {
+  background-image: url('./assets/dots-hover.svg');
+}
+
+.pinterest-icon {
+  background-image: url('./assets/pinterest.svg');
+}
+
+.pinterest-icon:hover {
+  background-image: url('./assets/pinterest-hover.svg');
+}
+
+.twitter-icon {
+  background-image: url('./assets/twitter.svg');
+}
+
+.twitter-icon:hover {
+  background-image: url('./assets/twitter-hover.svg');
+}
+
+.youtube-icon {
+  background-image: url('./assets/youtube.svg');
+}
+
+.youtube-icon:hover {
+  background-image: url('./assets/youtube-hover.svg');
 }
 
